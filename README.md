@@ -1,2 +1,9 @@
 # StompClient
-Reload client after change subject use SaviDB
+
+
+> just reload stomp client
+
+
+> Javascript API
+
+ 1. StompClient.reload(successCallback, errorCallback);
