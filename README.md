@@ -2,7 +2,7 @@
 
 > Just reload stomp client
 
- 
+ 1. Depend on GiGamore Libs-Service
 
 > Javascript API
 

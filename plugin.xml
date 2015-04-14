@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.fatcoder.cordova.stomp" version="0.0.1">
+  <name>StompClient</name>
+  <description>Reload client after change subject use SaviDB</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,Stomp,Client,phonegap</keywords>
+  <js-module src="www/StompClient.js" name="StompClient">
+    <clobbers target="StompClient"/>
+  </js-module>
+  <platform name="android">
+      <config-file target="res/xml/config.xml" parent="/*">
+          <feature name="StompClient">
+              <param name="android-package" value="com.fatcoder.cordova.stomp.StompClient"/>
+          </feature>
+      </config-file>
+      <source-file src="src/android/StompClient.java" target-dir="src/com/fatcoder/cordova/stomp" />
+  </platform>
+</plugin>
