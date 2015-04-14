@@ -1,8 +1,8 @@
 # StompClient
 
+> Just reload stomp client
 
-> just reload stomp client
-
+ 
 
 > Javascript API
 
