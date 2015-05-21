@@ -17,6 +17,7 @@ public class StompClient extends  CordovaPlugin  {
 		if (action.equalsIgnoreCase("reload")) {
 			
 			try {
+				cordova.getActivity().stopService(new Intent(PushService.class.getName()));
 				cordova.getActivity().startService(new Intent(PushService.class.getName()));
 					return true;
 			} catch (Exception e) {
