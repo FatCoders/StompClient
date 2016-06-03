@@ -7,8 +7,6 @@ import org.json.JSONException;
 
 import android.content.Intent;
 
-import com.gigamore.libs.service.PushService;
-
 public class StompClient extends  CordovaPlugin  {
 
 	public boolean execute(String action, JSONArray args,

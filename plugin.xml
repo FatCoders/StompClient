@@ -1,18 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.fatcoder.cordova.stomp" version="0.0.1">
-  <name>StompClient</name>
-  <description>Reload client after change subject use SaviDB</description>
-  <license>Apache 2.0</license>
-  <keywords>cordova,Stomp,Client,phonegap</keywords>
-  <js-module src="www/StompClient.js" name="StompClient">
-    <clobbers target="StompClient"/>
-  </js-module>
-  <platform name="android">
-      <config-file target="res/xml/config.xml" parent="/*">
-          <feature name="StompClient">
-              <param name="android-package" value="com.fatcoder.cordova.stomp.StompClient"/>
-          </feature>
-      </config-file>
-      <source-file src="src/android/StompClient.java" target-dir="src/com/fatcoder/cordova/stomp" />
-  </platform>
+    <name>StompClient</name>
+    <description>Reload client after change subject use SaviDB</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,Stomp,Client,phonegap</keywords>
+    <js-module src="www/StompClient.js" name="StompClient">
+        <clobbers target="StompClient" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="StompClient">
+                <param name="android-package" value="com.fatcoder.cordova.stomp.StompClient" />
+            </feature>
+        </config-file>
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.CALL_PHONE" android:autoLink="phone" />
+            <uses-permission android:name="android.permission.GET_TASKS" />
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.FLASHLIGHT" />
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+        </config-file>
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <service android:name="com.fatcoder.cordova.stomp.PushService" android:exported="false" android:process="$PACKAGE_NAME.push">
+                <intent-filter>
+                    <action android:name="com.fatcoder.cordova.stomp.PushService" />
+                </intent-filter>
+            </service>
+            <receiver android:name="com.fatcoder.cordova.stomp.PushReceiver" android:exported="false">
+                <intent-filter>
+                    <action android:name="com.fatcoder.cordova.stomp.PushService" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.BOOT_COMPLETED" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.TIME_SET" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.DATE_CHANGED" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.PACKAGE_ADDED" />
+                    <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                    <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                    <data android:scheme="package" />
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.MEDIA_BAD_REMOVAL" />
+                    <action android:name="android.intent.action.MEDIA_EJECT" />
+                    <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                    <action android:name="android.intent.action.MEDIA_REMOVED" />
+                    <action android:name="android.intent.action.MEDIA_SCANNER_FINISHED" />
+                    <action android:name="android.intent.action.MEDIA_SCANNER_STARTED" />
+                    <action android:name="android.intent.action.MEDIA_SHARED" />
+                    <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                    <data android:scheme="file" />
+                </intent-filter>
+            </receiver>
+            <receiver android:name="com.fatcoder.cordova.stomp.MSGReceiver" android:exported="false">
+                <intent-filter>
+                    <action android:name="$PACKAGE_NAME.MSG" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+        <source-file src="src/android/StompClient.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/Client.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/MSGReceiver.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/MyStompMessageListener.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/NetworkUtil.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/PushReceiver.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/PushService.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/Stomp.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/StompCommand.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/StompFrame.java" target-dir="src/com/fatcoder/cordova/stomp" />
+        <source-file src="src/android/StompMessageListener.java" target-dir="src/com/fatcoder/cordova/stomp" />
+    </platform>
 </plugin>
