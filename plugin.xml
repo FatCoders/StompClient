@@ -13,7 +13,8 @@
                 <param name="android-package" value="com.fatcoder.cordova.stomp.StompClient" />
             </feature>
         </config-file>
-        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+
+        <config-file parent="/manifest" target="AndroidManifest.xml">
             <uses-permission android:name="android.permission.CALL_PHONE" android:autoLink="phone" />
             <uses-permission android:name="android.permission.GET_TASKS" />
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -25,7 +26,7 @@
             <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
             <uses-permission android:name="android.permission.VIBRATE" />
         </config-file>
-        <config-file parent="/manifest" target="AndroidManifest.xml">
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
             <service android:name="com.fatcoder.cordova.stomp.PushService" android:exported="false" android:process="$PACKAGE_NAME.push">
                 <intent-filter>
                     <action android:name="com.fatcoder.cordova.stomp.PushService" />
