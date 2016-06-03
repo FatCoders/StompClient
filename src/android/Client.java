@@ -88,12 +88,10 @@ public class Client {
 						String sSubject=SharedPref.getString("subject", null);
 						stompClient.newCommand();
 						
-						stompClient.setHost(SharedPref.getString("host", "192.168.2.168"), Integer.parseInt(SharedPref.getString("port", "61613")));
-				        stompClient.setHeader("login", SharedPref.getString("login", "admin"));
-				        stompClient.setHeader("passcode", SharedPref.getString("passcode", "admin"));
+						stompClient.setHost(SharedPref.getString("host", "haostay.com"), Integer.parseInt(SharedPref.getString("port", "61613")));
+				        stompClient.setHeader("login", SharedPref.getString("login", "haostay"));
+				        stompClient.setHeader("passcode", SharedPref.getString("passcode", "haostay1"));
 						stompClient.connect();
-						stompClient.setHeader("destination", "/queue/29CCYWQiLxp6eRxuea3nGtZBZyzoSkrvf8");
-						 stompClient.subject();
 						Log.i("xiaof", "connect()");
 						if(!(sSubject==null)){
 							 String[] aSubject = sSubject.split(",");
