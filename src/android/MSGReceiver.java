@@ -13,7 +13,7 @@ import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 
-import com.haostay.mobile.schools.*;
+import com.haostay.mobile.book.*;
 
 import org.json.JSONObject;
 
