@@ -75,6 +75,7 @@
                 </intent-filter>
             </receiver>
         </config-file>
+        <source-file src="src/libs/android-support-v4.jar" target-dir="libs" />
         <source-file src="src/android/StompClient.java" target-dir="src/com/fatcoder/cordova/stomp" />
         <source-file src="src/android/Client.java" target-dir="src/com/fatcoder/cordova/stomp" />
         <source-file src="src/android/MSGReceiver.java" target-dir="src/com/fatcoder/cordova/stomp" />
