@@ -39,7 +39,6 @@ public class MSGReceiver extends BroadcastReceiver {
                          PendingIntent.FLAG_UPDATE_CURRENT);
                  NotificationCompat.Builder mBuilder =
                      new NotificationCompat.Builder(context)
-                         .setSmallIcon(R.drawable.ic_launcher)
                          .setContentTitle(
                                  context.getResources().getString(R.string.app_name))
                          .setContentText(alert)
